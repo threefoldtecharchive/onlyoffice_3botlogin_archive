@@ -37,3 +37,4 @@ venv.bak/
 
 #don't push admincredentials
 admincredentials.py
+private.key
