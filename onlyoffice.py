@@ -36,7 +36,7 @@ class OnlyOfficeAuthenticator:
     def getAuthenticationToken(self, email, password):
         response = requests.post(f"{config['onlyofficeUrl']}/api/2.0/authentication.json", json={'userName': email, 'password':password[0:30]}).json()
         print(response)
-        if response['statusCode'] is not 201:
+        if response['statusCode'] != 201:
             return 'failed boo'
         return response['response']['token']
 

@@ -1,6 +1,7 @@
 config = {
-    'threebot-appid': 'localhost:5000',
-    'onlyofficeUrl': 'http://localhost',
-    'loginUrl': 'https://login.staging.jimber.org',
+    'threebot-privatekey': 'KBEs2Z7O7o/MzGdYTNR2FT0jjrRLAtFuWtZcnU8inWo=',
+    'threebot-appid': 'office.threefold.tech',
+    'onlyofficeUrl': 'http://onlyoffice-community-server',
+    'loginUrl': 'https://login.threefold.me',
     'kycUrl': 'https://openkyc.staging.jimber.org'
 }

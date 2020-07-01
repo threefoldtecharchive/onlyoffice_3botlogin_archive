@@ -41,7 +41,7 @@ class ThreeBotAuthenticator:
 
 
     def routes(self):
-        @self.app.route('/callback_threebot')
+        @self.app.route('/auth/callback_threebot')
         def callback():
             if request.args.get("error"):
                 message = urllib.parse.quote(request.args.get("error"))
@@ -87,7 +87,7 @@ class ThreeBotAuthenticator:
             values = json.loads(response.decode('utf-8'))
 
             seiVerified = requests.post(f"{config['kycUrl']}/verification/verify-sei", json={ "signedEmailIdentifier": values['email']['sei'] })
-            if seiVerified.status_code is not 200:
+            if seiVerified.status_code != 200:
                 return 'Email unverified, access denied.', 400
             
 
@@ -102,7 +102,7 @@ class ThreeBotAuthenticator:
             resp.set_cookie('asc_auth_key', authkey)
             return resp
 
-        @self.app.route('/login')
+        @self.app.route('/auth/login')
         def login():
             # Public backend authenticator service
             authurl = config['loginUrl']
